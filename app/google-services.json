@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1012011696656",
+    "firebase_url": "https://noteteampurpleandroid.firebaseio.com",
+    "project_id": "noteteampurpleandroid",
+    "storage_bucket": "noteteampurpleandroid.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1012011696656:android:d9c116fe7bf0d0d55f0095",
+        "android_client_info": {
+          "package_name": "com.example.note_teampurple_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1012011696656-4b87mgjlij8spoc0er2apolco6t3fvfm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCocsX-A2KaKLa6h8stVLcQ49UENWPGokM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1012011696656-4b87mgjlij8spoc0er2apolco6t3fvfm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

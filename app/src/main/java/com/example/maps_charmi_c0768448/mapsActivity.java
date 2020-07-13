@@ -1,5 +1,6 @@
 package com.example.maps_charmi_c0768448;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
@@ -25,12 +26,14 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
+import com.google.android.gms.maps.model.Polyline;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class mapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMapClickListener
+public class mapsActivity extends AppCompatActivity implements OnMapReadyCallback,  GoogleMap.OnMapClickListener, GoogleMap.OnMapLongClickListener, GoogleMap.OnPolylineClickListener, GoogleMap.OnPolygonClickListener
+
 {
 
     private GoogleMap mMap;
@@ -98,7 +101,6 @@ public class mapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
             private void setMarker(LatLng latLng) {
                 MarkerOptions options = getMarkerOption(latLng);
-                // check if there are already the same number of markers, we clear the map.
                 if (markers.size() == POLYGON_SIDES)
                     clearMap();
                 markers.add(mMap.addMarker(options));
@@ -194,5 +196,29 @@ public class mapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .snippet("Your Location");
         homeMarker = mMap.addMarker(options);
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 15));
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (REQUEST_CODE == requestCode) {
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 0, locationListener);
+            }
+        }
+    }
+
+    @Override
+    public void onMapLongClick(LatLng latLng) {
+
+    }
+
+    @Override
+    public void onPolygonClick(Polygon polygon) {
+
+    }
+
+    @Override
+    public void onPolylineClick(Polyline polyline) {
+
     }
 }
